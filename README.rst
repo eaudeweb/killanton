@@ -7,6 +7,7 @@ Installation
 ------------------
 
 ::
+
         mkdir killanton
         virtualenv --distribute --no-site-packages -p /path/to/python2.7/or/less killanton
         cd killanton
