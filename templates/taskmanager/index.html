@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block header %}
+<h1>Kill Anton</h1>
+{% endblock%}
+{% block content %}
+<div id="add-task-container">
+    <form name="add-task" id="add-task-form" method="post" action="">{% csrf_token %}
+        {% for field in form %}
+            <div class="field">
+                <div class="field-label">{{field.label}}</div>
+                <div class="field-input">{{field}}</div>
+                <div class="field-errors">{{field.errors}}</div>
+            </div>
+        {% endfor %}
+        <div class="submit-buttons">
+            <input class="submit" name="submit" type="submit" value="Add" />
+        </div>
+    </form>
+</div>
+<div class="unfishined-tasks">
+    {% if tasks %}
+    <table>
+        <tr>
+            <td>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Author</th>
+                <th>Deadline</th>
+            </td>
+        </tr>
+        {% for task in tasks %}
+        <tr class="task">
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.author}}</td>
+            <td>{{task.deadline|timeuntil}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{MEDIA_URL}}js/jquery-ui-timepicker-addon.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#id_deadline').datetimepicker();
+    });
+</script>
+{% endblock %}

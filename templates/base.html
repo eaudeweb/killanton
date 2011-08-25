@@ -1,0 +1,52 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Kill Anton</title>
+  <meta name="description" content="task management app">
+  <meta name="author" content="Alexandru Plugaru, Eau de Web">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/style.css"><!-- reset -->
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/jquery-ui-1.8.16.custom.css">
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/base.css">
+</head>
+
+<body>
+
+  <div id="container">
+      <header>
+      {% block header %}{% endblock %}
+      </header>
+    <div id="main" role="main">
+    {% block content %}{% endblock %}
+    </div>
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+  </div> <!--! end of #container -->
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{MEDIA_URL}}js/jquery-1.6.2.min.js"><\/script>')</script>
+  <script src="{{MEDIA_URL}}js/jquery-ui-1.8.16.custom.min.js"></script>
+  <script src="{{MEDIA_URL}}js/modernizr-2.0.6.min.js"></script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+    {% block scripts %}{% endblock %}
+  <!-- end scripts-->
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>
+
